@@ -1,15 +1,28 @@
 import Layout from "../../components/Layout/Layout";
 import styles from './styles.module.scss'
-import { GetServerSideProps } from "next";
+import { GetServerSidePropsContext, GetServerSidePropsResult } from "next";
 import { ITodosData } from "../../interfaces/Todos";
 
+
+type Todo = {
+    title: string
+}
+
+type Params = {
+    id: string
+}
+
+type Props = {
+    todo: Todo
+}
 
 interface ITodoProps {
     todo: ITodosData
 }
 
-export const getServerSideProps: GetServerSideProps = async (context ) => {
-    const { id } = context.params!;
+export const getServerSideProps = async (
+    context: GetServerSidePropsContext ): Promise<GetServerSidePropsResult<Props>> => {
+    const { id } = context.params as Params;
     const response = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`);
     const data = await response.json();
 

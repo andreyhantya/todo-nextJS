@@ -1,12 +1,14 @@
 import React from "react";
 import Layout from "../../components/Layout/Layout";
-import { GetServerSideProps } from "next";
+import { GetServerSidePropsResult } from "next";
 import { ITodosData } from "../../interfaces/Todos";
 
 interface ICompletedProps {
     todos: ITodosData[]
 }
-export const getServerSideProps: GetServerSideProps  = async () => {
+export const getServerSideProps  = async (): Promise<
+    GetServerSidePropsResult<ICompletedProps>
+    > => {
     const response = await fetch('https://jsonplaceholder.typicode.com/todos');
     const data = await response.json();
 

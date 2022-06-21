@@ -1,12 +1,12 @@
 import Layout from "../components/Layout/Layout";
 import { ITodosData } from "../interfaces/Todos";
-import { GetServerSideProps } from "next";
+import { GetServerSidePropsResult } from "next";
 
 interface IHomeProps {
     todos: ITodosData[]
 }
 
-export const getServerSideProps: GetServerSideProps  = async () => {
+export const getServerSideProps  = async (): Promise<GetServerSidePropsResult<IHomeProps>> => {
     const response = await fetch('https://jsonplaceholder.typicode.com/todos');
     const data = await response.json();
 
