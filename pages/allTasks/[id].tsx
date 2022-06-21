@@ -1,6 +1,5 @@
 import Layout from "../../components/Layout/Layout";
 import styles from './styles.module.scss'
-import {is} from "immutable";
 
 
 export const getServerSideProps = async (context: any) => {
@@ -19,11 +18,11 @@ export const getServerSideProps = async (context: any) => {
 }
 
 const Todo = ({ todo }: any) => {
-    const {id, title, completed} = todo
+    const { title } = todo
 
 
     return (
-        <Layout>
+        <Layout title={title}>
             <div className={styles.todo}>{title}</div>
         </Layout>
     )

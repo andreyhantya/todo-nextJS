@@ -11,6 +11,13 @@ interface IAllTasksProps {
 export const getServerSideProps: GetServerSideProps  = async () => {
     const response = await fetch('https://jsonplaceholder.typicode.com/todos');
     const data = await response.json();
+
+    if(!data) {
+        return {
+            notFound: true
+        }
+    }
+
     return {
         props: {todos: data}
     }
