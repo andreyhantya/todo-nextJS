@@ -1,7 +1,7 @@
 import Layout from "../../components/Layout/Layout";
 import React from "react";
 import {ITodosData} from "../../interfaces/Todos";
-import {GetServerSideProps} from "next";
+import { GetServerSideProps } from "next";
 
 interface ITodosProps {
     todos: ITodosData[]
@@ -22,13 +22,13 @@ export const getServerSideProps: GetServerSideProps  = async () => {
 }
 
 const Todos = ({ todos }: ITodosProps): JSX.Element => {
-            const todoTasks = todos.filter(({ completed }) => !completed)
+    const todoTasks = todos.filter(({ completed }) => !completed)
 
-            return (
-            <Layout title='Todo Tasks'>
-                {todoTasks.map((todo) => <div key={todo.id}>{todo.title}</div>)}
-            </Layout>
-            )
+    return (
+        <Layout title='Todo Tasks'>
+            {todoTasks.map((todo) => <div key={todo.id}>{todo.title}</div>)}
+        </Layout>
+    )
 }
 
 export default Todos;

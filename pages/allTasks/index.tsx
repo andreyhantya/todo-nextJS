@@ -27,7 +27,7 @@ const allTasks = ({ todos }: IAllTasksProps): JSX.Element => (
         <Layout title='All tasks'>
             <ul>
                 {todos.map(({ id, title, completed })=> (
-                    <li key={id}  className={completed ? styles.completed : null!}>
+                    <li key={id}  className={completed ?  styles.completed: ""}>
                         <Link href={`/allTasks/${id}`}>{title}</Link>
                     </li>
                 ))}
