@@ -28,7 +28,12 @@ const allTasks = ({ todos }: IAllTasksProps): JSX.Element => (
             <ul>
                 {todos.map(({ id, title, completed })=> (
                     <li key={id}  className={completed ?  styles.completed: ""}>
-                        <Link href={`/allTasks/${id}`}>{title}</Link>
+                        <Link href={{
+                            pathname: '/allTasks/[id]',
+                            query: {id}
+                        }}>
+                            {title}
+                        </Link>
                     </li>
                 ))}
             </ul>
