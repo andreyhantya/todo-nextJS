@@ -1,0 +1,52 @@
+.header {
+  background-color: #b4b4b4;
+
+  .linkWrapper {
+    height: 50px;
+    color: #fff;
+    padding: 0;
+    width: 100%;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    & li {
+      display: inline;
+    }
+    & a{
+      outline: none;
+      text-decoration: none;
+      display: inline-block;
+      width: 200px;
+      margin-left: 0.625%;
+      text-align: center;
+      line-height: 3;
+      color: black;
+      background-color: #a28d37;
+      &:hover {
+        background-color: #ff9898; 
+      }
+    }
+  }
+}
+
+.active {
+  background-color:red ;
+}
+
+.input {
+  height: 50px;
+  width: 300px;
+}
+
+.button {
+  height: 50px;
+  width: 200px;
+  cursor: pointer;
+}
+
+.todoControls {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
